@@ -9,7 +9,7 @@ conn = mysql.connector.connect(
     host="localhost",      # Endereço do servidor MySQL
     user="root",    # Seu usuário do MySQL
     password="root",  # Sua senha do MySQL
-    database="fishTrack"   # Nome do banco de dados
+    database="test-database"   # Nome do banco de dados
 )
 
 cursor = conn.cursor()
