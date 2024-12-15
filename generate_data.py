@@ -29,7 +29,7 @@ def gerar_temperaturas():
         )
         
         cursor.execute(
-            "INSERT INTO Temperatura (ph, horario) VALUES (%s, %s)", 
+            "INSERT INTO PH (ph, horario) VALUES (%s, %s)", 
             (ph, horario)
         )
 
