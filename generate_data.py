@@ -19,12 +19,18 @@ def gerar_temperaturas():
     for _ in range(100):
         temperatura = round(random.uniform(0, 50), 2)  # Temperatura entre 0 e 50, com 2 casas decimais
         horas_anteriores = random.randint(0, 100)      # Intervalo de horas aleatório (0 a 100 horas atrás)
+        ph = random.randint(0,14);
         horario = datetime.now() - timedelta(hours=horas_anteriores)
         
         # Comando para inserir na tabela
         cursor.execute(
-            "INSERT INTO Temperatura (temperatura, horario) VALUES (%s, %s)", 
+            "INSERT INTO Temperatura (temperatura, horario,ph) VALUES (%s, %s)", 
             (temperatura, horario)
+        )
+        
+        cursor.execute(
+            "INSERT INTO Temperatura (ph, horario) VALUES (%s, %s)", 
+            (ph, horario)
         )
 
     # Commit das alterações no banco
