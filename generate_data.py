@@ -16,10 +16,10 @@ cursor = conn.cursor()
 
 # Função para gerar dados e inserir na tabela
 def gerar_temperaturas():
-        cursor.execute(
-            "INSERT INTO User (email, password) VALUES (%s, %s)", 
-            ("admin@gmail.com", "admin")
-        )
+    cursor.execute(
+        "INSERT INTO User (email, password) VALUES (%s, %s)", 
+        ("admin@gmail.com", "admin")
+    )
     for _ in range(100):
         temperatura = round(random.uniform(0, 50), 2)  # Temperatura entre 0 e 50, com 2 casas decimais
         horas_anteriores = random.randint(0, 100)      # Intervalo de horas aleatório (0 a 100 horas atrás)
