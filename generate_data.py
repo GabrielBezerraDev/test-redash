@@ -14,8 +14,37 @@ conn = mysql.connector.connect(
 
 cursor = conn.cursor()
 
+create_temperatura_table = """
+CREATE TABLE IF NOT EXISTS Temperatura (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    temperatura FLOAT NOT NULL,
+    horario DATETIME NOT NULL
+)
+"""
+
+create_ph_table = """
+CREATE TABLE IF NOT EXISTS PH (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    horario DATETIME NOT NULL,
+    ph FLOAT NOT NULL
+)
+"""
+
+create_user_table = """
+CREATE TABLE IF NOT EXISTS User (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+)
+"""
+
 # Função para gerar dados e inserir na tabela
 def gerar_temperaturas():
+    
+    cursor.execute(create_temperatura_table)
+    cursor.execute(create_ph_table)
+    cursor.execute(create_user_table)
+    
     cursor.execute(
         "INSERT INTO User (email, password) VALUES (%s, %s)", 
         ("admin@gmail.com", "admin")
