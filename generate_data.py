@@ -32,6 +32,11 @@ def gerar_temperaturas():
             "INSERT INTO PH (ph, horario) VALUES (%s, %s)", 
             (ph, horario)
         )
+        
+        cursor.execute(
+            "INSERT INTO User (email, password) VALUES (%s, %s)", 
+            ("admin@gmail.com", "admin")
+        )
 
     # Commit das alterações no banco
     conn.commit()
