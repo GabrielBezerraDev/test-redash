@@ -47,7 +47,7 @@ def gerar_temperaturas():
     
     cursor.execute(
         "INSERT INTO User (email, password) VALUES (%s, %s)", 
-        ("admin@gmail.com", "admin")
+        ("admin@gmail.com", "$2a$12$rQDWkleOIAvo/SUL5ImEMe22xFkGhsKMus8.gRdS2ZGtx1gDdIU/6")
     )
     for _ in range(100):
         temperatura = round(random.uniform(0, 50), 2)  # Temperatura entre 0 e 50, com 2 casas decimais
